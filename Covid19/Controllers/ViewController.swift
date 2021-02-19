@@ -12,6 +12,7 @@ import CoreLocation
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var avgDeathLabel: UILabel!
+    @IBOutlet weak var avgConfimedLabel: UILabel!
     private var cases : [Case] = []
     private let locationManager = CLLocationManager()
     
@@ -28,7 +29,9 @@ class ViewController: UIViewController {
         API.fetchCases(completion: { (casesArray) in
             self.cases = Array(casesArray.suffix(from: casesArray.count - 180))
             self.tableView.reloadData()
-            self.avgDeathLabel.text = String(self.calculateAvgDeath())
+            self.avgDeathLabel.text = self.getFormattedValue(of: self.calculateAvgDeath())
+            self.avgConfimedLabel.text = self.getFormattedValue(of: self.calculateAvgConfimed())
+            
             self.saveMaxCase(maxCase: self.calculateMaxConfirmedCases())
             self.saveMaxDeath(maxDeath: self.calculateMaxDeath())
             
@@ -63,7 +66,16 @@ class ViewController: UIViewController {
         for item in arrayDeath {
             avgDeath += item.Deaths
         }
-        return avgDeath
+        return avgDeath / 14
+    }
+    
+    private func calculateAvgConfimed() -> Int {
+        let arrayConfirmed = self.cases.suffix(from: self.cases.count - 14)
+        var avgConfirmed = 0
+        for item in arrayConfirmed {
+            avgConfirmed += item.Confirmed
+        }
+        return avgConfirmed / 14
     }
     
     private func calculateMaxDeath() -> Int {
@@ -110,6 +122,14 @@ class ViewController: UIViewController {
         }
     }
     
+    private func getFormattedValue(of value : Int ) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = NumberFormatter.Style.decimal
+        formatter.groupingSeparator = "."
+        formatter.alwaysShowsDecimalSeparator = false
+        return formatter.string(for: value)!
+    }
+    
 }
 
 extension ViewController: UITableViewDataSource{
@@ -120,8 +140,8 @@ extension ViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CasesTableViewCell", for: indexPath) as? CasesTableViewCell
             else { return UITableViewCell()}
-        let confirmed = String(cases[indexPath.row].Confirmed)
-        let deaths = String(cases[indexPath.row].Deaths)
+        let confirmed = getFormattedValue(of: cases[indexPath.row].Confirmed)
+        let deaths = getFormattedValue(of: cases[indexPath.row].Deaths)
         let date = cases[indexPath.row].Date
         cell.setupCell(date: formatDate(dateString: date), deaths: deaths, confimed: confirmed)
         
