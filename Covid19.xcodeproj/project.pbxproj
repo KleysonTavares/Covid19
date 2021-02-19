@@ -13,6 +13,12 @@
 		0939BB6025DC1A1D0099DDCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0939BB5F25DC1A1D0099DDCD /* Assets.xcassets */; };
 		0939BB6325DC1A1D0099DDCD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0939BB6125DC1A1D0099DDCD /* LaunchScreen.storyboard */; };
 		0939BB6E25DC1A1D0099DDCD /* Covid19Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0939BB6D25DC1A1D0099DDCD /* Covid19Tests.swift */; };
+		0939BB7925DC1D770099DDCD /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0939BB7825DC1D770099DDCD /* API.swift */; };
+		0939BB7B25DC1D830099DDCD /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0939BB7A25DC1D830099DDCD /* Endpoints.swift */; };
+		0939BB7E25DC208F0099DDCD /* Cases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0939BB7D25DC208F0099DDCD /* Cases.swift */; };
+		0998C16F25DF636C00428597 /* UserDefaultCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0998C16E25DF636C00428597 /* UserDefaultCases.swift */; };
+		09D5699225DE25A100C19B23 /* CasesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D5699025DE25A100C19B23 /* CasesTableViewCell.swift */; };
+		09D5699325DE25A100C19B23 /* CasesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09D5699125DE25A100C19B23 /* CasesTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +42,12 @@
 		0939BB6925DC1A1D0099DDCD /* Covid19Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Covid19Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0939BB6D25DC1A1D0099DDCD /* Covid19Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Covid19Tests.swift; sourceTree = "<group>"; };
 		0939BB6F25DC1A1D0099DDCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0939BB7825DC1D770099DDCD /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		0939BB7A25DC1D830099DDCD /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		0939BB7D25DC208F0099DDCD /* Cases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cases.swift; sourceTree = "<group>"; };
+		0998C16E25DF636C00428597 /* UserDefaultCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultCases.swift; sourceTree = "<group>"; };
+		09D5699025DE25A100C19B23 /* CasesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasesTableViewCell.swift; sourceTree = "<group>"; };
+		09D5699125DE25A100C19B23 /* CasesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CasesTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,11 +90,14 @@
 			isa = PBXGroup;
 			children = (
 				0939BB5825DC1A190099DDCD /* AppDelegate.swift */,
-				0939BB5A25DC1A190099DDCD /* ViewController.swift */,
-				0939BB5C25DC1A190099DDCD /* Main.storyboard */,
+				0939BB7F25DC21860099DDCD /* Models */,
+				0939BB8125DC21A70099DDCD /* Controllers */,
+				0939BB8025DC21970099DDCD /* Views */,
+				0939BB7C25DC1F890099DDCD /* Networking */,
 				0939BB5F25DC1A1D0099DDCD /* Assets.xcassets */,
-				0939BB6125DC1A1D0099DDCD /* LaunchScreen.storyboard */,
 				0939BB6425DC1A1D0099DDCD /* Info.plist */,
+				09D5699425DE25AC00C19B23 /* Cell */,
+				0998C17025DF637700428597 /* Persistence */,
 			);
 			path = Covid19;
 			sourceTree = "<group>";
@@ -94,6 +109,57 @@
 				0939BB6F25DC1A1D0099DDCD /* Info.plist */,
 			);
 			path = Covid19Tests;
+			sourceTree = "<group>";
+		};
+		0939BB7C25DC1F890099DDCD /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				0939BB7825DC1D770099DDCD /* API.swift */,
+				0939BB7A25DC1D830099DDCD /* Endpoints.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		0939BB7F25DC21860099DDCD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0939BB7D25DC208F0099DDCD /* Cases.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0939BB8025DC21970099DDCD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0939BB5C25DC1A190099DDCD /* Main.storyboard */,
+				0939BB6125DC1A1D0099DDCD /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0939BB8125DC21A70099DDCD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0939BB5A25DC1A190099DDCD /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0998C17025DF637700428597 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				0998C16E25DF636C00428597 /* UserDefaultCases.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		09D5699425DE25AC00C19B23 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				09D5699025DE25A100C19B23 /* CasesTableViewCell.swift */,
+				09D5699125DE25A100C19B23 /* CasesTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0939BB6325DC1A1D0099DDCD /* LaunchScreen.storyboard in Resources */,
+				09D5699325DE25A100C19B23 /* CasesTableViewCell.xib in Resources */,
 				0939BB6025DC1A1D0099DDCD /* Assets.xcassets in Resources */,
 				0939BB5E25DC1A190099DDCD /* Main.storyboard in Resources */,
 			);
@@ -198,7 +265,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0939BB5B25DC1A190099DDCD /* ViewController.swift in Sources */,
+				0939BB7925DC1D770099DDCD /* API.swift in Sources */,
+				0998C16F25DF636C00428597 /* UserDefaultCases.swift in Sources */,
+				0939BB7E25DC208F0099DDCD /* Cases.swift in Sources */,
+				0939BB7B25DC1D830099DDCD /* Endpoints.swift in Sources */,
 				0939BB5925DC1A190099DDCD /* AppDelegate.swift in Sources */,
+				09D5699225DE25A100C19B23 /* CasesTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,7 +442,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = KST.Covid19;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -388,7 +460,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = KST.Covid19;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
